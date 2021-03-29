@@ -1,36 +1,35 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 from datetime import datetime
 
 posts = [
     {
-        'name': 'Mont Blank',
-        'user': 'Yésica Cortez',
+        'title': 'Mont Blank',
+        'user': {
+            'name': 'Yésica Cortez',
+            'picture': 'https://picsum.photos/60/60/?image=1027'
+        },
         'timestamp': datetime.now().strftime('%b %dth, %Y - %H:%M hrs'),
         'picture': 'https://picsum.photos/200/200/?image=1036'
     },
     {
-        'name': 'Vía lactea',
-        'user': 'C. Vander',
+        'title': 'Vía lactea',
+        'user': {
+            'name': 'C. Vander',
+            'picture': 'https://picsum.photos/60/60/?image=1027'
+        },
         'timestamp': datetime.now().strftime('%b %dth, %Y - %H:%M hrs'),
         'picture': 'https://picsum.photos/200/200/?image=1036'
     },
     {
-        'name': 'Nuevo auditorio',
-        'user': 'Uriel',
+        'title': 'Nuevo auditorio',
+        'user': {
+            'name': 'Uriel',
+            'picture': 'https://picsum.photos/60/60/?image=1027'
+        },
         'timestamp': datetime.now().strftime('%b %dth, %Y - %H:%M hrs'),
         'picture': 'https://picsum.photos/200/200/?image=1036'
     },
 ]
 
 def posts_list(request):
-    content = []
-
-    for post in posts:
-        content.append("""
-            <p><strong>{name}</strong></p>
-            <p><small>{user} - <i>{timestamp}</i></small></p>
-            <figure><img src="{picture}"></figure>
-            """.format(**post))
-
-    return HttpResponse('<br>'.join(content))
+    return render(request, 'feed.html', {'posts': posts})
