@@ -1,3 +1,4 @@
-platzigram/__pycache__
+*/__pycache__
+*/migrations/__pycache__
 venv/
 *.sqlite3
