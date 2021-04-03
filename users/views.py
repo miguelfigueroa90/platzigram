@@ -54,3 +54,6 @@ def signup_user(request):
     profile.save()
 
     return redirect('login_form')
+
+def update_profile(request):
+    return render(request, 'users/update_profile.html')
