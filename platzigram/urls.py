@@ -9,7 +9,10 @@ from users import views as users_views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('posts/', posts_views.posts_list, name='feed'),
+
+    path('', posts_views.posts_list, name='feed'),
+    path('posts/new', posts_views.create_post, name='create_post'),
+
     path('users/login/', users_views.login_form, name='login_form'),
     path('users/login_authenticate/', users_views.login_authenticate, name='login_authenticate'),
     path('users/logout/', users_views.logout_user, name='logout'),
