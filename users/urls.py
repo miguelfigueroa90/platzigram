@@ -12,12 +12,12 @@ urlpatterns = [
     # Management
     path(
         route='login/',
-        view=views.login_view,
+        view=views.LoginView.as_view(),
         name='login'
     ),
     path(
         route='logout/',
-        view=views.logout_view,
+        view=views.LogoutView.as_view(),
         name='logout'
     ),
     path(
@@ -30,7 +30,6 @@ urlpatterns = [
         view=views.UpdateProfileView.as_view(),
         name='update'
     ),
-
     # Posts
     path(
         route='<str:username>/',
